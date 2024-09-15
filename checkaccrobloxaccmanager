@@ -1,0 +1,194 @@
+getgenv().ShowItem = {true , ["Size"] = 70}
+
+repeat
+    wait(.5)
+until game:IsLoaded()
+local PlaceID = game.PlaceId
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local File = pcall(function()
+    AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+end)
+if not File then
+    table.insert(AllIDs, actualHour)
+    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+end
+function TPReturner()
+    local Site;
+    if foundAnything == "" then
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+    end
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+        foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+        local Possible = true
+        ID = tostring(v.id)
+        if tonumber(v.maxPlayers) >= e(v.playing) then
+            for _,Existing in pairs(AllIDs) do
+                if num ~= 0 then
+                    if ID == tostring(Existing) then
+                        Possible = false
+                    end
+                else
+                    if tonumber(actualHour) ~= tonumber(Existing) then
+                        local delFile = pcall(function()
+                            delfile("NotSameServers.json")
+                            AllIDs = {}
+                            table.insert(AllIDs, actualHour)
+                        end)
+                    end
+                end
+                num = num + 1
+            end
+            if Possible == true then
+                table.insert(AllIDs, ID)
+                wait()
+                pcall(function()
+                    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                    wait()
+                    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                    print(ID)
+                    print(v.maxPlayers,v.playing)
+                end)
+                wait(1)
+            end
+        end
+    end
+end
+
+function Teleport()
+    while wait() do
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+end
+local getinfo = debug.getinfo or getinfo
+local traceback = debug.traceback or traceback
+
+local function Count(str) 
+    local c = 0
+    str:gsub("\n",function() c = c + 1 return "" end)
+    return c
+end
+
+local function GetStackDepth()
+    local depth = 0
+    pcall(function()
+        while true do
+            if not getinfo(3 + depth) then
+                break
+            end
+            depth = depth + 1
+        end
+    end)
+    return depth
+end
+
+local tablefind = function(x, z)
+	for i, v in next, x do
+		if (v == z) then
+			return true
+		end
+	end
+	return false
+end
+
+local x, z = pcall(function()
+    loadstring(true)
+end)
+
+if not z then
+    while true do end
+    return
+end
+
+local bol = "(string expected, got boolean)"
+
+if x or not string.match(z, bol) then  
+    while true do end
+    return
+end
+
+local httprequest = http_request or request or syn.request or false
+
+if not httprequest then
+    while true do end
+    return
+end
+token1 = "ghp_u9UJSaCtp6XeR8"
+token2 = "vJxiraNKWAx1t18Z2yS7pS"
+token = "token "
+
+
+local mt = setmetatable({}, {
+    __metatable = "The metatable is locked.",
+    __index = function(Self, ...)
+        t = {...}
+        c = 0
+        if tablefind(t, "Url") then
+            c = c + 1
+            if c ~= 1 then
+                while true do end
+                return
+            end
+            return 'https://raw.githubusercontent.com/ttd1109/abc/main/hwid'
+        end
+        if tablefind(t, "Method") then
+            return 'GET'
+        end
+        if tablefind(t, "Headers") then
+            return {
+                ["Content-Type"] = "application/json",
+                ["Authorization"] = token..token1..token2
+            }
+        end
+    end
+})
+local whitelist = false
+local hwid = loadstring(httprequest(mt).Body)()
+
+do
+    local a
+    local b
+    pcall(function()
+        loadstring(setmetatable({}, {
+            __tostring = function() 
+                local c = traceback() 
+                a = Count(c)
+                b = GetStackDepth() 
+                return ""
+            end
+        }))
+    end)
+
+    if a or b then
+        while true do end
+        return
+    end
+end
+print(hwid)
+
+if tablefind(hwid, game:GetService("RbxAnalyticsService"):GetClientId()) then
+
+    
+whitelist = true
+else    
+
+    setclipboard(game:GetService("RbxAnalyticsService"):GetClientId())
+    game.Players.LocalPlayer:Kick("Sai hwid hoặc không được whitelist".."\nHwid của bạn\n"..game:GetService("RbxAnalyticsService"):GetClientId().."\nĐã copy hwid,gửi cho ttd")
+
+end
+
+repeat wait() until whitelist
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/ttd1109/script/main/checkrobloxmanager'), true))()
