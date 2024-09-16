@@ -19,7 +19,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Networking"):WaitForChild("Se
 
 function SendWebHook(UnitName,UnitRarity)
     local msg = {
-        ['content'] = '@everyone',
+        ['content'] = 'lon',
         ["embeds"] = {{
             ["title"] = "Anime Vanguard",
             ["description"] = "Unit Summoned",
