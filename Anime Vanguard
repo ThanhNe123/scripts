@@ -6,7 +6,7 @@ repeat wait() until Plr.Character:FindFirstChild("HumanoidRootPart")
 repeat wait() until Plr.Character:FindFirstChild("Humanoid") 
 local Plrgui =game.Players.LocalPlayer.PlayerGui
 local vim = game:GetService("VirtualInputManager")
-local ListCode = {"DELAY","RELEASE","10KLIKES","100KLIKES","200KLIKES","300KLIKES","10MVISITS","25MVISITS","400KLIKES","AV500KLIKES","600KLIKES","70MVISITS","AV50MIL","300KPLAYERS","100MVISITS","800KLIKES"}
+local ListCode = {"10KLIKES","100KLIKES","200KLIKES","300KLIKES","10MVISITS","25MVISITS","400KLIKES","AV500KLIKES","600KLIKES","70MVISITS","300KPLAYERS","100MVISITS","800KLIKES"}
 for i,v in pairs(ListCode) do 
     game:GetService("ReplicatedStorage"):WaitForChild("Networking"):WaitForChild("CodesEvent"):FireServer(v)
 end
