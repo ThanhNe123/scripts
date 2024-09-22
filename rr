@@ -1,0 +1,64 @@
+getgenv().ImportMacro = "https://cdn.discordapp.com/attachments/1244881081237377035/1283725558764671028/SJW-UNEVO_Itachi_Light_Speed.json?ex=66f13917&is=66efe797&hm=acb68d87b32e560dd3a1b7fbabcef75c1711f6c64c33c4cd118853b25da7b01c&"
+getgenv().Config = {
+    ["Joiner Cooldown"] = 0,
+    ["Stage Joiner"] = {
+        ["Act"] = "Infinite",
+        ["Stage"] = "Planet Namak"
+    },
+    ["Performance"] = {
+        ["Delete Map"] = true,
+        ["Boost FPS"] = true
+    },
+    ["Match Finished"] = {
+        ["Auto Replay"] = true
+    },
+    ["Webhook"] = {
+        ["Stage Finished"] = true,
+        ["Unit Summoned"] = true,
+        ["URL"] = "https://discord.com/api/webhooks/1285517996701257781/3LoCWi6MJqJneQ5dvSKUUdZZU55lIRpcFgauXD5AM9Bh3pddXeQoCUU66x3hyjNMIYrV"
+    },
+    ["Legend Stage Joiner"] = {
+        ["Auto Join"] = true,
+        ["Stage"] = "Double Dungeon",
+        ["Act"] = "Act3"
+    },
+    ["Failsafe"] = {
+        ["Auto Rejoin"] = true,
+        ["Teleport Lobby if Player"] = true
+    },
+    ["Macros"] = {
+        ["Macro"] = "SJW_EVO_Itachi_Light_Speed",
+        ["Play"] = true,
+        ["No Ignore Sell Timing"] = true,
+        ["Ignore Macro Timing"] = true
+    },
+    ["AutoSave"] = true,
+    ["Claimer"] = {
+        ["Auto Claim Battle Pass"] = true,
+        ["Auto Claim Quest"] = true,
+        ["Auto Claim Daily Reward"] = true,
+        ["Auto Claim Collection"] = true,
+        ["Auto Claim Achievement"] = true
+    },
+    ["Gameplay"] = {
+        ["Auto Skip Wave"] = true,
+        ["Auto Sell"] = {
+            ["Enable"] = true,
+            ["Wave"] = 18
+        },
+        ["Auto Modifier"] = {
+            ["Enable"] = true,
+            ["Prioritize"] = {
+                ["Revitalize"] = 6,
+                ["Exploding"] = 2,
+                ["Thrice"] = 4,
+                ["Strong"] = 3,
+                ["Shielded"] = 5,
+                ["Regen"] = 7,
+                ["Fast"] = 1
+            }
+        }
+    }
+}
+getgenv().Key = "k209ef3d77f77a21d963adc7"
+repeat wait()spawn(function()loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()end)wait(1)until Joebiden
