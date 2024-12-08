@@ -1,0 +1,22 @@
+getgenv().Config = {
+    ['Auto Farm'] = {
+        ['Delay Hop'] = 10,
+        ['Hop Farm'] = {
+            ['New World'] = true, --// If you are high enough level to enter the Third Sea Map but the item is missing, it will hop to find the item
+            ['Boss'] = true, --// When at max level, it will hop servers to find the boss.
+            ['Blacklist Hop Boss'] = {
+                ['HydraSeaKing'] = false,
+                ['SeaKing'] = false,
+                ['Ghost Ship'] = false,
+                ['Jack o lantern [Lv. 10000]'] = false,
+                ['Skull King'] = false,
+                ['ThirdSeaEldritch Crab'] = false,
+                ['SeaDragon'] = false, --// Abyssal Tyrant
+                ['ThirdSeaDragon'] = false, --// Drakenfyr the Inferno King
+                ['FuryTentacle'] = false, --// Chaos Kraken
+            },--// If true, it will skip and continue hopping.
+            ['Sea Map'] = 'ThirdSea', --// ThirdSea, SecondSea, FirstSea - It will automatically return to the selected sea and hop servers.
+        }
+    },
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kilavn/vandoscript/refs/heads/main/main.lua"))()
