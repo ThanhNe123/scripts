@@ -2,7 +2,7 @@ repeat task.wait() until game:IsLoaded()
 local function checkFruits()
     local fruitsFound = {}
     local fruitCounts = {
-        ["DragonFruit"] = 0,
+        ["Dragon (West) Fruit"] = 0,
         ["KitsuneFruit"] = 0,
         ["DoughFruit"] = 0,
         ["LeopardFruit"] = 0,
@@ -23,7 +23,8 @@ local function checkFruits()
         ["ShadowFruit"] = 0,
         ["VenomFruit"] = 0,
         ["ControlFruit"] = 0,
-        ["SpiritFruit"] = 0
+        ["SpiritFruit"] = 0,
+        ["Dragon (East) Fruit"] = 0
     }
 
     for _, obj in pairs(workspace:GetChildren()) do
