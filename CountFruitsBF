@@ -1,0 +1,51 @@
+repeat task.wait() until game:IsLoaded()
+local function checkFruits()
+    local fruitsFound = {}
+    local fruitCounts = {
+        DragonFruit = 0,
+        KitsuneFruit = 0,
+        DoughFruit = 0,
+        LeopardFruit = 0,
+        GasFruit = 0,
+        BuddhaFruit = 0,
+        QuakeFruit = 0,
+        LoveFruit = 0,
+        SpiderFruit = 0,
+        SoundFruit = 0,
+        PhoenixFruit = 0,
+        PortalFruit = 0,
+        RumbleFruit = 0,
+        PainFruit = 0,
+        BlizzardFruit = 0,
+        GravityFruit = 0,
+        MammothFruit = 0,
+        TRexFruit = 0,
+        ShadowFruit = 0,
+        VenomFruit = 0,
+        ControlFruit = 0,
+        SpiritFruit = 0
+    }
+    for _, obj in pairs(workspace:GetChildren()) do
+        if obj:IsA("Model") and string.find(obj.Name, "Fruit") then
+            table.insert(fruitsFound, obj.Name)
+            if fruitCounts[obj.Name:gsub(" ", "")] ~= nil then
+                fruitCounts[obj.Name:gsub(" ", "")] = fruitCounts[obj.Name:gsub(" ", "")] + 1
+            end
+        end
+    end
+    print("==========DANH SÁCH TRÁI TRONG SERVER==========")
+    print(string.format("Tổng số trái trong server: %d", #fruitsFound))
+    print("Số lượng từng loại trái:")
+    local fruitCountStr = {}
+    for fruitType, count in pairs(fruitCounts) do
+        table.insert(fruitCountStr, string.format("%s: %d", fruitType, count))
+    end
+    print(table.concat(fruitCountStr, " | "))
+    print("========================================================")
+end
+checkFruits()
+while true do
+    wait(60)
+    print("Kiểm tra trái trong server...")
+    checkFruits()
+end
