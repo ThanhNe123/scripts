@@ -1,0 +1,25 @@
+local function teleportToThirdSea()
+    local replicatedStorage = game:GetService("ReplicatedStorage")
+    local remotes = replicatedStorage:FindFirstChild("Remotes")
+    local commF = remotes and remotes:FindFirstChild("CommF_")
+
+    if not commF then
+        warn("Không tìm thấy CommF_! Đảm bảo bạn đang sử dụng đúng script.")
+        return
+    end
+
+    if game.PlaceId == 4442272183 then
+        print("teleport Third Sea...")
+        local success, err = pcall(function()
+            commF:InvokeServer("TravelZou")
+        end)
+        if success then
+            print("Third Sea!")
+        else
+            warn("Error teleport to Third Sea:", err)
+        end
+    else
+        print("Third Sea.")
+    end
+end
+teleportToThirdSea()
