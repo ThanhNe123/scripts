@@ -8,18 +8,20 @@ local function teleportToThirdSea()
         return
     end
 
-    if game.PlaceId == 4442272183 then
-        print("teleport Third Sea...")
+    if game.PlaceId == 4442272183 then -- Nếu đang ở Second Sea
+        print("Đang thực hiện teleport đến Third Sea...")
         local success, err = pcall(function()
             commF:InvokeServer("TravelZou")
         end)
         if success then
-            print("Third Sea!")
+            print("Teleport thành công đến Third Sea!")
         else
-            warn("Error teleport to Third Sea:", err)
+            warn("Lỗi khi teleport đến Third Sea:", err)
         end
     else
-        print("Third Sea.")
+        print("Bạn không ở Second Sea hoặc đã ở Third Sea.")
     end
 end
+
+-- Gọi hàm tự động khi script được load
 teleportToThirdSea()
